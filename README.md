@@ -13,7 +13,7 @@ The advantage of this script is to support incremental backups.
 
 **USAGE:**
 
-1. Edit config in head of the script phpIB.php
+1. Edit config in config.php
 
 
 *Example:*
@@ -29,6 +29,7 @@ $ftpUser = 'login';
 $ftpPassword = 'password';
 $ftpHost = 'ftp.example.ru';
 $ftpPath = 'test';
+$days = 30;
 </pre>
 
 2. Add in your crontab task
@@ -39,8 +40,6 @@ $ftpPath = 'test';
 
 **ToDO:**
 
-1. Add limit of daily backups
+1. Add support to exclude files and directories
 
-2. Add support to exclude files and directories
-
-3. Add mail report with stats and status
+2. Add mail report with stats and status

@@ -10,3 +10,4 @@ $ftpUser = '';
 $ftpPassword = '';
 $ftpHost = 'ftp.selcdn.ru';
 $ftpPath = 'test';
+$days = 30;

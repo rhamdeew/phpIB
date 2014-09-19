@@ -1,6 +1,7 @@
 <?php
 
 require "config.php";
+$now = time();
 
 //Getting list of databases
 
@@ -80,12 +81,35 @@ if(!empty($users)) {
 		//Delete mysql dir from user directory
 		exec('rm -rf '.$mysqlPath);
 
+
+		//Remove old backups
+		$result = "";
+		exec('ls '.$backupPath.'/',$result);
+
+		if(!empty($result)) {
+
+			foreach($result as $dir) {
+				if(mb_substr($dir, 0,7)=="backup-") {
+
+					$date = mb_substr($dir, 7);
+					$time = strtotime($date);
+					$datediff = floor(($now - $time)/(60*60*24));
+					if($datediff>$days) {
+						rmdir($backupPath.'/'.$dir);
+						echo "Removed: ".$backupPath.'/'.$dir."\n";
+					}
+				}
+			}
+
+		}
+
 		//Archiving backups
 		exec('tar zcf '.$backupPath.'.tar.gz '.$backupPath);
 		//Uploading to ftp
 		exec('curl -T '.$backupPath.'.tar.gz ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);
 		//Remove archive
 		exec('rm '.$backupPath.'.tar.gz');
+
 	}
 
 }

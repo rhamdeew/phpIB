@@ -43,3 +43,5 @@ $days = 30;
 1. Add support to exclude files and directories
 
 2. Add mail report with stats and status
+
+3. Add filesize limit && split

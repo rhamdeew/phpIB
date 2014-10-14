@@ -11,3 +11,6 @@ $ftpPassword = '';
 $ftpHost = 'ftp.selcdn.ru';
 $ftpPath = 'test';
 $days = 30;
+$archiver = 'gzip';
+// $archiver = 'pigz';
+$exclude_file = 'exclude.txt'; 

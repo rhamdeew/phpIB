@@ -10,6 +10,9 @@ The advantage of this script is to support incremental backups.
 - php-cli
 - rsync
 - curl
+- tar
+- gzip
+- pigz (optional)
 
 **USAGE:**
 
@@ -30,6 +33,9 @@ $ftpPassword = 'password';
 $ftpHost = 'ftp.example.ru';
 $ftpPath = 'test';
 $days = 30;
+// $archiver = 'gzip';
+$archiver = 'pigz';
+$exclude_file = 'exclude.txt'; 
 </pre>
 
 2. Add in your crontab task
@@ -40,7 +46,7 @@ $days = 30;
 
 **ToDO:**
 
-1. Add support to exclude files and directories
+1. -Add support to exclude files and directories-
 
 2. Add mail report with stats and status
 

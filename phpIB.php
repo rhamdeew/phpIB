@@ -1,7 +1,18 @@
 <?php
 
+echo "Starting backup process\n";
+
 require "config.php";
 $now = time();
+$alltimeNow = $now;
+
+///////////////////////////////////////////////////////////
+//														 //
+//						Getting info 					 //
+//														 //
+///////////////////////////////////////////////////////////
+
+echo "Getting ISPmanager data\n";
 
 //Getting list of databases
 
@@ -27,8 +38,6 @@ if(!empty($result)) {
 		if(isset($db["name"]) && isset($db['owner']))
 			$databases[$db["owner"]][] = $db["name"];
 	}
-
-	// var_dump($databases);
 }
 
 //Getting list of users
@@ -49,11 +58,23 @@ if(!empty($result)) {
 	}
 }
 
-//Create backups
+///////////////////////////////////////////////////////////
+//														 //
+//	  				  Create backups 					 //
+//														 //
+///////////////////////////////////////////////////////////
+
+$sec = time()-$now;
+echo "Done in ".$sec." sec.\n";
 
 if(!empty($users)) {
 
+echo "Starting rsync process\n";
+
 	foreach ($users as $user => $databases) {
+
+$now = time();
+echo "User ".$user."\n";
 
 		//Databases backups
 		$path = $user_path.$user.'/';
@@ -73,9 +94,16 @@ if(!empty($users)) {
 		$backupPath = $backupsStorage.$user;
 
 		exec('mkdir -p '.$backupPath);
-		exec('ln -s backup-'.$date.' '.$backupPath.'/current');
+		exec('ln -s '.$backupName.' '.$backupPath.'/current');
 
-		exec('rsync -az --link-dest='.$backupPath.'/current '.$path.' '.$backupPath.'/'.$backupName);
+        if(file_exists(__DIR__.'/'.$exclude_file)) {
+        	echo "Use exclude file ".$exclude_file."\n";
+            exec('rsync -az --exclude-from \''.__DIR__.'/'.$exclude_file.'\' --link-dest='.$backupPath.'/current '.$path.' '.$backupPath.'/'.$backupName);
+        }
+        else {
+        	exec('rsync -az --link-dest='.$backupPath.'/current '.$path.' '.$backupPath.'/'.$backupName);
+        }
+
 		exec('rm '.$backupPath.'/current && ln -s '.$backupName.' '.$backupPath.'/current');
 
 		//Delete mysql dir from user directory
@@ -103,13 +131,41 @@ if(!empty($users)) {
 
 		}
 
+$sec = time()-$now;
+echo "Done in ".$sec." sec.\n";
+
+$now = time();
+echo "Starting archieving process\n";
+
 		//Archiving backups
-		exec('tar zcf '.$backupPath.'.tar.gz '.$backupPath);
+		if($archiver=='gzip') {
+			echo "Use gzip\n";
+			exec('tar zcf '.$backupPath.'.tar.gz '.$backupPath);
+		}
+		elseif($archiver=='pigz') {
+			echo "Use pigz\n";
+			exec('tar cf - '.$backupPath.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz');
+		}
+
+$sec = time()-$now;
+echo "Done in ".$sec." sec.\n";
+
+$now = time();
+echo "Starting upload process\n";
+
 		//Uploading to ftp
 		exec('curl -T '.$backupPath.'.tar.gz ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);
 		//Remove archive
 		exec('rm '.$backupPath.'.tar.gz');
+		
+$sec = time()-$now;
+echo "Done in ".$sec." sec.\n";		
+		 
+echo "-----------------------\n";		
 
 	}
 
 }
+
+$sec = time()-$alltimeNow;
+echo "All time ".$sec." sec.\n";

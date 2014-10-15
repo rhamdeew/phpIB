@@ -144,7 +144,12 @@ echo "Starting archieving process\n";
 		}
 		elseif($archiver=='pigz') {
 			echo "Use pigz\n";
-			exec('tar cf - '.$backupPath.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz');
+			if(!empty($max_archive_size)) {
+				exec('tar cf - '.$backupPath.' | pigz -9 -p 32 | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz');
+			}
+			else {
+				exec('tar cf - '.$backupPath.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz');
+			}
 		}
 
 $sec = time()-$now;
@@ -154,9 +159,23 @@ $now = time();
 echo "Starting upload process\n";
 
 		//Uploading to ftp
-		exec('curl -T '.$backupPath.'.tar.gz ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);
+		if(!empty($max_archive_size)) {
+			exec('ls '.$backupPath.'.tar.gz*',$result);
+			foreach($result as $file) {
+				exec('curl -T '.$file.' ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);
+			}
+		}
+		else {
+			exec('curl -T '.$backupPath.'.tar.gz ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);			
+		}		
+
 		//Remove archive
-		exec('rm '.$backupPath.'.tar.gz');
+		if(!empty($max_archive_size)) {
+			exec('rm '.$backupPath.'.tar.gz*');
+		}
+		else {
+			exec('rm '.$backupPath.'.tar.gz');
+		}
 		
 $sec = time()-$now;
 echo "Done in ".$sec." sec.\n";		

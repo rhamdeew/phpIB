@@ -13,4 +13,5 @@ $ftpPath = 'test';
 $days = 30;
 $archiver = 'gzip';
 // $archiver = 'pigz';
-$exclude_file = 'exclude.txt'; 
+$exclude_file = 'exclude.txt';
+$max_archive_size = '4000M';

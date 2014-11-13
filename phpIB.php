@@ -162,7 +162,7 @@ if(empty($cmd) || $cmd=='--delete-old') {
 				$now = time();
 				echo "Starting archieving process\n";
 				$log .= "Starting archieving process\n";
-
+				unset($result);
 				exec('ls -td '.$backupPath.'/backup-* | xargs -n 1 basename', $result);
 				
 				if(!empty($result))
@@ -187,9 +187,11 @@ if(empty($cmd) || $cmd=='--delete-old') {
 						echo "Use pigz\n";
 						$log .= "Use pigz\n";
 						if(!empty($max_archive_size)) {
+							echo 'tar cf - '.$backupNames.' | pigz -9 -p 32 | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz';
 							exec('tar cf - '.$backupNames.' | pigz -9 -p 32 | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz');
 						}
 						else {
+							echo 'tar cf - '.$backupNames.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz';
 							exec('tar cf - '.$backupNames.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz');
 						}
 					}

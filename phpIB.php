@@ -180,18 +180,18 @@ if(empty($cmd) || $cmd=='--delete-old') {
 					if($archiver=='gzip') {
 						echo "Use gzip\n";
 						$log .= "Use gzip\n";
-						echo 'tar zcf '.$backupPath.'.tar.gz '.$backupNames;
+						echo 'tar zcf '.$backupPath.'.tar.gz '.$backupNames."\n";
 						exec('tar zcf '.$backupPath.'.tar.gz '.$backupNames);
 					}
 					elseif($archiver=='pigz') {
 						echo "Use pigz\n";
 						$log .= "Use pigz\n";
 						if(!empty($max_archive_size)) {
-							echo 'tar cf - '.$backupNames.' | pigz -9 -p 32 | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz';
+							echo 'tar cf - '.$backupNames.' | pigz -9 -p 32 | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz'."\n";
 							exec('tar cf - '.$backupNames.' | pigz -9 -p 32 | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz');
 						}
 						else {
-							echo 'tar cf - '.$backupNames.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz';
+							echo 'tar cf - '.$backupNames.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz'."\n";
 							exec('tar cf - '.$backupNames.' | pigz -9 -p 32 > '.$backupPath.'.tar.gz');
 						}
 					}

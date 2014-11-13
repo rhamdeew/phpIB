@@ -1,0 +1,1188 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"done",
+				"done_button"
+			],
+			[
+				"input_e",
+				"input_error_msg"
+			],
+			[
+				"in",
+				"inputs"
+			],
+			[
+				"er",
+				"error_input_msg"
+			],
+			[
+				"em",
+				"empty_strings"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"clo",
+				"close-modal"
+			],
+			[
+				"form",
+				"form-wrapper"
+			],
+			[
+				"ajax",
+				"ajaxform_submit"
+			],
+			[
+				"arr",
+				"arrParams"
+			],
+			[
+				"add",
+				"additional_codes"
+			],
+			[
+				"_",
+				"_REQUEST"
+			],
+			[
+				"fo",
+				"formtarget"
+			],
+			[
+				"dea",
+				"deal_id"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"com",
+				"comment_text"
+			],
+			[
+				"utm_m",
+				"utm_medium"
+			],
+			[
+				"utm",
+				"utm_content"
+			],
+			[
+				"ar",
+				"ar_fields"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"CU",
+				"CUser::IsAdmin	Bitrix CUser::IsAdmin"
+			],
+			[
+				"j",
+				"jQuery"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"le",
+				"letter-spacing"
+			],
+			[
+				"arP",
+				"arParams"
+			],
+			[
+				"age",
+				"ages"
+			],
+			[
+				"strip",
+				"strip_tags"
+			],
+			[
+				"a",
+				"age"
+			],
+			[
+				"PRO",
+				"PROPERTY_CODE"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"arR",
+				"arRibbons"
+			],
+			[
+				"opt",
+				"option"
+			],
+			[
+				"optio",
+				"optionIcon"
+			],
+			[
+				"op",
+				"optionName"
+			],
+			[
+				"type",
+				"typeID"
+			],
+			[
+				"ty",
+				"typeID"
+			],
+			[
+				"pro",
+				"programImg"
+			],
+			[
+				"V",
+				"VALUE_XML_ID"
+			],
+			[
+				"VALUE",
+				"VALUE_ENUM"
+			],
+			[
+				"A",
+				"AGE"
+			],
+			[
+				"get_De",
+				"get_defined_vars"
+			],
+			[
+				"IB",
+				"IBLOCK_TYPE"
+			],
+			[
+				"SEC",
+				"SECTION_CODE"
+			],
+			[
+				"xml",
+				"xmlid_offset"
+			],
+			[
+				"xmli",
+				"xmlid_offset"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"csv",
+				"csvNames"
+			],
+			[
+				"cs",
+				"csvNames"
+			],
+			[
+				"array_un",
+				"array_unshift"
+			],
+			[
+				"ex",
+				"exclude_file"
+			],
+			[
+				"e",
+				"exclude_file"
+			],
+			[
+				"colary",
+				"colary-popup"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"list-sy",
+				"list-style-type"
+			],
+			[
+				"is",
+				"isFound"
+			],
+			[
+				"new",
+				"news-detail"
+			],
+			[
+				"sec",
+				"section_code"
+			],
+			[
+				"option",
+				"option1"
+			],
+			[
+				"me",
+				"metrikaEvent"
+			],
+			[
+				"sty",
+				"styleCSS"
+			],
+			[
+				"brand",
+				"brand_mails"
+			],
+			[
+				"util",
+				"utilModels"
+			],
+			[
+				"list-st",
+				"list-style-type"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"time",
+				"timezone"
+			],
+			[
+				"tim",
+				"timezone"
+			],
+			[
+				"u",
+				"usertime"
+			],
+			[
+				"uns",
+				"unset"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"mai",
+				"maillist"
+			],
+			[
+				"margin-",
+				"margin-top"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"PRICE",
+				"PRICE_CODE"
+			],
+			[
+				"sc",
+				"scripts"
+			],
+			[
+				"_SE",
+				"_SESSION"
+			],
+			[
+				"col",
+				"colary_result"
+			],
+			[
+				"cola",
+				"colary_brands"
+			],
+			[
+				"pa",
+				"pattern"
+			],
+			[
+				"pat",
+				"patterns"
+			],
+			[
+				"par",
+				"parsed_url"
+			],
+			[
+				"parse",
+				"parsed_url"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"asse",
+				"assets"
+			],
+			[
+				"ulop",
+				"ulopen_theme"
+			],
+			[
+				"fot",
+				"font-weight"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"dnk-",
+				"dnk-class-item"
+			],
+			[
+				"dnk",
+				"dnk-type-item"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"TY",
+				"TYPES_IBLOCK_ID"
+			],
+			[
+				"cate",
+				"category_id"
+			],
+			[
+				"class",
+				"class_id"
+			],
+			[
+				"C",
+				"CODE"
+			],
+			[
+				"cl",
+				"class_value"
+			],
+			[
+				"cla",
+				"class_id"
+			],
+			[
+				"CATE",
+				"CATEGORY_IBLOCK_ID"
+			],
+			[
+				"ftpP",
+				"ftpPassword"
+			],
+			[
+				"ftp",
+				"ftpUser"
+			],
+			[
+				"backups",
+				"backupsStorage"
+			],
+			[
+				"bac",
+				"backupPath"
+			],
+			[
+				"use",
+				"user_path"
+			],
+			[
+				"user",
+				"user_path"
+			],
+			[
+				"my",
+				"mysqlPath"
+			],
+			[
+				"db",
+				"dbName"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"se",
+				"setCounts"
+			],
+			[
+				"filter",
+				"filter_props"
+			],
+			[
+				"brand_li",
+				"brand_lines"
+			],
+			[
+				"brand_l",
+				"brand_lines"
+			],
+			[
+				"arS",
+				"arSelect"
+			],
+			[
+				"brandline",
+				"brandlines_404"
+			],
+			[
+				"page",
+				"page_variant"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"lin",
+				"lines_class"
+			],
+			[
+				"all",
+				"all_class"
+			],
+			[
+				"al",
+				"all_class"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"for",
+				"CodeFormatter: Format Code"
+			],
+			[
+				"ssh",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssp",
+				"Set Syntax: PHP"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ssj",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"sscs",
+				"Set Syntax: CSS"
+			],
+			[
+				"sssq",
+				"Set Syntax: SQL"
+			],
+			[
+				"sp",
+				"Set Syntax: PHP"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"fo",
+				"CodeFormatter: Format Code"
+			],
+			[
+				"ssb",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"sss",
+				"Set Syntax: SQL"
+			],
+			[
+				"form",
+				"Format Code"
+			],
+			[
+				"sssh",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"sh",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			],
+			[
+				"pcr",
+				"Package Control: Remove Package"
+			],
+			[
+				"pc",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"ssph",
+				"Set Syntax: PHP"
+			],
+			[
+				"sscss",
+				"Set Syntax: CSS"
+			],
+			[
+				"ssc",
+				"Set Syntax: C"
+			],
+			[
+				"ss",
+				"Set Syntax: PHP"
+			],
+			[
+				"sshtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"ma",
+				"Set Syntax: Markdown"
+			],
+			[
+				"ssq",
+				"Set Syntax: SQL"
+			],
+			[
+				"ssba",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"sspa",
+				"Set Syntax: Pascal"
+			],
+			[
+				"ssxml",
+				"Set Syntax: XML"
+			],
+			[
+				"ssx",
+				"Set Syntax: XSL"
+			],
+			[
+				"php",
+				"PHP Coding Standards Fixer: Fix this file"
+			],
+			[
+				"phpc",
+				"PHP Code Sniffer: Sniff this file"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/rail/Work/php/projects/ulopen/www/protected/runtime/application.log",
+		"/tmp/untitled.html",
+		"/home/rail/Work/php/projects/ulopen/www.old/protected/config/main-free.php",
+		"/home/rail/Work/php/projects/ibuycar/ibuycar/frontend/config/main.php",
+		"/home/rail/Work/php/projects/ibuycar/ibuycar/frontend/controllers/SiteController.php",
+		"/home/rail/Work/php/projects/ibuycar/ibuycar/frontend/models/BecomeDealerForm.php",
+		"/home/rail/1331-node/home/user/wrapper_new_PROD_3001/app_3001.js",
+		"/home/rail/1331-node/home/user/wrapper_new_PROD_3001/package.json",
+		"/home/rail/1331/app.js",
+		"/home/rail/1331/package.json",
+		"/home/rail/Work_srv/abroad/abroad/reference3/index.php",
+		"/home/rail/Work_srv/abroad/abroad/index.php",
+		"/home/rail/Work/frontend/blogdesign/app/index.html",
+		"/home/rail/Work/frontend/blog/pelicanconf.py",
+		"/home/rail/Work/frontend/blog/content/supa.md",
+		"/home/rail/Work/frontend/blog/publishconf.py",
+		"/home/rail/Work/frontend/blogdesign/app/styles/main.scss",
+		"/home/rail/Work_srv/abroad/abroad/reference/index.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/reference/section.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/reference/sections.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/reference/subsection.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/reference/element.php",
+		"/home/rail/Загрузки/send.php",
+		"/home/rail/Work/php/projects/dekor/www/js/scripts.js",
+		"/home/rail/Work/php/projects/dekor/www/index.php",
+		"/home/rail/Загрузки/megaplan.php",
+		"/home/rail/Work/php/projects/dekor/www/megaplan.php",
+		"/home/rail/Work/php/projects/dekor/www/send.php",
+		"/home/rail/Work/php/projects/dekor/www/utm_names.php",
+		"/home/rail/IBuyCarServiceTest.php",
+		"/home/rail/Work_srv/bxApiDocs/modules/iblock/iblock.php",
+		"/home/rail/Work_srv/bxApiDocs/1.php",
+		"/home/rail/Work_srv/bxApiDocs/bitrix.php.tags",
+		"/home/rail/1331/libs/helpers/1c.js",
+		"/home/rail/Work/frontend/blogdesign/index.html",
+		"/home/rail/Work/frontend/blogdesign/css/main.css",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/css/main.css",
+		"/home/rail/Загрузки/1/main.log.2014-10-24.19",
+		"/home/rail/Work_srv/abroad/abroad/sidebar.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/header.php",
+		"/tmp/date.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/bitrix/catalog.section/.default/template.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/group.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/section.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/sectionfast.php",
+		"/home/rail/Загрузки/1c_catalog/import.xml",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/sections.php",
+		"/home/rail/Загрузки/tables.sql",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog.section/slider/template.php",
+		"/home/rail/Work_srv/abroad/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/element.php",
+		"/home/rail/Загрузки/elements_w_new.csv",
+		"/home/rail/Загрузки/2elements_w_new.csv",
+		"/home/rail/Work_srv/dnk/bitrix/php_interface/init.php",
+		"/home/rail/dnk_import/csv/elements_w.csv",
+		"/home/rail/dnk_import/csv/import_elements.php",
+		"/home/rail/Work/php/projects/open/www/protected/modules/install/data/open-re.sql",
+		"/home/rail/mysql-slow.log",
+		"/home/rail/import_lite.php",
+		"/home/rail/Work_srv/abroad/abroad.bak/index.php",
+		"/home/rail/Work/php/projects/phpIB/config.php",
+		"/home/rail/Загрузки/index.php",
+		"/home/rail/Загрузки/newv (2)/index.html",
+		"/home/rail/Work/frontend/colary.ru/index.html",
+		"/home/rail/Загрузки/bench.php",
+		"/home/rail/Work/php/projects/phpIB/phpIB.php",
+		"/tmp/csv/category.csv",
+		"/tmp/csv/type.csv",
+		"/tmp/csv/import_elements.php",
+		"/tmp/csv/elements_w.csv",
+		"/tmp/csv/class.csv",
+		"/tmp/csv/brands.csv",
+		"/home/rail/Загрузки/Выгрузка данных на сайт 23.09.2014/category.csv",
+		"/tmp/test/1.php",
+		"/tmp/backuptest/phpIB.php",
+		"/tmp/backuptest/config.php",
+		"/home/rail/Work/php/projects/phpIB/exclude.txt",
+		"/home/rail/Work/php/projects/phpIB/README.md",
+		"/tmp/1.php",
+		"/home/rail/Загрузки/Выгрузка данных на сайт 23.09.2014/new/elements.csv",
+		"/home/rail/Загрузки/Выгрузка данных на сайт 23.09.2014/new/sections.csv",
+		"/home/rail/Загрузки/Выгрузка данных на сайт 23.09.2014/new/export.csv",
+		"/home/rail/Work/php/projects/rolfpromo/www/promo/ajaxmailer.php",
+		"/tmp/abroad/index.php",
+		"/tmp/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/sections.php",
+		"/tmp/abroad/bitrix/templates/abroad_main_new/components/bitrix/catalog/abroad/bitrix/catalog.element/.default/template.php",
+		"/tmp/index.php",
+		"/home/rail/design.php",
+		"/home/rail/Work/php/projects/rolfpromo/www/css/app.min.css",
+		"/home/rail/Work/php/projects/rolfpromo/www/ajaxmailer.php",
+		"/home/rail/Work/php/projects/rolfpromo/www/js/app.min.js",
+		"/home/rail/Work/php/projects/rolfpromo/www/index.html",
+		"/home/rail/Work/php/projects/rolfpromo/www/js/new.js",
+		"/home/rail/Work/php/projects/rolfpromo/www/css/new.css",
+		"/home/rail/Work/php/projects/rolfpromo/iloverolf.ru/js/app.min.js",
+		"/home/rail/Work/php/projects/rolfpromo/iloverolf.ru/index.html",
+		"/home/rail/Work/php/projects/rolfpromo/iloverolf.ru/ajaxmailer.php",
+		"/home/rail/Work/php/projects/marat/www/send.php",
+		"/home/rail/Work/php/projects/dekor/www/geo.php",
+		"/home/rail/Work/frontend/dekor-ks/app/styles/style.css",
+		"/home/rail/Work/php/projects/dekor/www/styles/main.css",
+		"/home/rail/Work/php/projects/marat/www/geo.php",
+		"/home/rail/Work/frontend/dekor-ks/app/counters.html",
+		"/home/rail/Work/php/projects/dekor/www/callback.php",
+		"/home/rail/Work/php/projects/dekor/www/question.php",
+		"/home/rail/Work/php/projects/dekor/www/request.php",
+		"/home/rail/Work/frontend/dekor-ks/gulpfile.js",
+		"/home/rail/Work/frontend/dekor-ks/app/styles/vendor/jslider.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/choosedec/choosedec.css",
+		"/home/rail/Work/frontend/dekor-ks/app/js/scripts.js",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/all/all.css",
+		"/home/rail/Work/frontend/dekor-ks/app/js/fancybox/jquery.fancybox-1.3.4.css",
+		"/home/rail/Work/frontend/dekor-ks/dist/index.html",
+		"/home/rail/Work/frontend/dekor-ks/app/js/tmpl.js",
+		"/home/rail/Work/frontend/dekor-ks/app/styles/vendor/jslider.round.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/bank/bank.css",
+		"/home/rail/Work/frontend/dekor-ks/app/index.html",
+		"/home/rail/Work/frontend/dekor-ks/app/js/fancybox/jquery.fancybox-1.3.4.min.css",
+		"/home/rail/Work/frontend/dekor-ks/app/styles/style1.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/bank/bank.png",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/header/header.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/why/why.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/cat/cat.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/fibro-material/fibro-material.css",
+		"/home/rail/Work/frontend/dekor-ks/app/images/sprites/materialplace/materialplace.css",
+		"/home/rail/dekor_original/index.php",
+		"/home/rail/dekor_original/js/jquery.min.js",
+		"/home/rail/Work/frontend/dekor-ks/app/styles/main.scss",
+		"/home/rail/dekor/js/script.js"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/home/rail/Work/php/projects/dekor/www/js",
+			"/home/rail/Work/frontend/dekor-ks/app/styles",
+			"/home/rail/Work/php/projects/marat/www",
+			"/tmp/bl/bluefish"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"[Creator]:",
+			"><tr>",
+			":<table",
+			"<br>",
+			"delete mode 100644",
+			"form-wr",
+			"sep",
+			"<form",
+			" class=\"brit\"",
+			" type=\"square\"",
+			" class=\"ref\"",
+			"h2",
+			" class=\"brit\"",
+			"            ",
+			"\\n(\\s)+          ",
+			"\\n          ",
+			"h2",
+			" class=\"ref\"",
+			"          ",
+			" class=\"ref\"",
+			"h2",
+			" class=\"ref\"",
+			" class=\"off\"",
+			" class=\"bl\"",
+			"h2",
+			"$page",
+			"'88002003134@mail.ru',",
+			"email",
+			"replacephone",
+			"phone",
+			"megapla",
+			"ques",
+			"page",
+			"popup",
+			"create_clien",
+			"create_deal",
+			"utm_term",
+			"ques",
+			"h2",
+			" class=\"bl\"",
+			"h2",
+			" class=\"ref\"",
+			"h2",
+			"            ",
+			"/reference/ref_country/australia/austr_do.php",
+			" class=\"bl\"",
+			"h2",
+			" class=\"ref\"",
+			"            ",
+			"                    ",
+			"h2",
+			"            ",
+			" class=\"bl\"",
+			"h2",
+			"            ",
+			" class=\"bl\"",
+			"h2",
+			"        ",
+			"h2",
+			" class=\"bl\"",
+			"h2",
+			"        ",
+			"(\\s){4}",
+			"(\\s)+\\n",
+			" class=\"off\"",
+			" class=\"ref\"",
+			"h2",
+			"h4",
+			"h2",
+			"style",
+			"success",
+			"search",
+			"contact2",
+			"IsA",
+			"contacts.jpg",
+			"contact",
+			"GetList",
+			"img src",
+			"img",
+			"arrow-do",
+			"select-brand",
+			"arrow-right",
+			"ajax-",
+			"pattern=\"^+\\d{1} (\\d{3}) \\d{3} \\d{2} \\d{2}$\"",
+			"ajax-form-submit",
+			"abide",
+			"phone",
+			"Спасибо",
+			"phone",
+			"quantal",
+			"h4",
+			"!",
+			"<?xml version=\"1.0\"",
+			"age",
+			"ages",
+			"optionName",
+			"'];\n",
+			"$ribbons",
+			"arRib",
+			"$key",
+			"programs",
+			"fast",
+			"Query_time",
+			"{dbPrefix}",
+			"bx_1c_import_lite.php",
+			";",
+			"Утилизац",
+			"\";\"",
+			"	",
+			"dir",
+			"ATKuznetsova@rolf.ru",
+			"backupNam",
+			"194.58.88.116",
+			"kredit73.ru/index.files/",
+			"shop",
+			"<?if(HtmlTitle::is404()) header(\"HTTP/1.0 404 Not Found\");?>\n<!DOCTYPE html>\n<html>\n<head>\n		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=<?echo LANG_CHARSET;?>\">\n		<?$APPLICATION->SetPageProperty(\"description\", HtmlTitle::getDescription());?>\n		<?$APPLICATION->SetPageProperty(\"keywords\", HtmlTitle::getKeywords());?>\n		<?$APPLICATION->SetPageProperty(\"author\", 'Корпорация DNK')?>\n		<?$APPLICATION->ShowCSS();?>\n		<?$APPLICATION->ShowMeta(\"keywords\")?>\n		<?$APPLICATION->ShowMeta(\"description\")?>\n		<?$APPLICATION->ShowMeta(\"author\")?>\n		<title><?HtmlTitle::showTitle()?></title>\n		<?$APPLICATION->ShowHeadStrings()?>\n		<?$APPLICATION->ShowHeadScripts()?>\n		<?HtmlTitle::setLastMod();?>\n		\n		<!-- Facebook info -->\n		<meta property=\"og:title\" content=\"<?HtmlTitle::showTitle()?>\"/>\n		<meta property=\"og:type\" content=\"text\"/>\n		<meta property=\"og:url\" content=\"http://<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>\"/>\n		<meta property=\"og:site_name\" content=\"Корпорация DNK\"/>\n		<meta property=\"og:image\" content=\"http://<?=$_SERVER['HTTP_HOST']?>/bitrix/templates/dnk/images/logo.png\" />\n		<!-- endof Facebook info -->\n		\n		<meta name=\"google-site-verification\" content=\"Ecd6qvJo2IfsANW2YTu4ntvdoa1fItsR_39dkxJY1GE\" />\n		<link href=\"/bitrix/templates/new/css/jquery.lightbox-0.5.css\" type=\"text/css\" rel=\"stylesheet\">\n		<link href=\"/bitrix/templates/new/images/favicon.ico\" rel=\"shortcut icon\" type=\"image/x-icon\" />\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/jquery-1.10.2.min.js\"></script>\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/cufon-yui.js\"></script>\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/cufon-replace.js\"></script>  \n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/Bender_400.font.js\"></script>\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/rubl_400.font.js\"></script>\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/main.js\"></script>\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/navigate.js?v=001\"></script>\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/jquery.lightbox-0.5.js\"></script>\n		<script type=\"text/javascript\" src=\"http://vk.com/js/api/share.js?9\" charset=\"windows-1251\"></script>\n		<script type=\"text/javascript\" src=\"//vk.com/js/api/openapi.js?101\"></script>\n		<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false\"></script>\n		<script type=\"text/javascript\" src=\"http://www.google.com/recaptcha/api/js/recaptcha_ajax.js\"></script>\n		\n		<link href=\"/bitrix/templates/new/js/jquery-ui/css/smoothness/jquery-ui-1.10.4.custom.min.css\" type=\"text/css\" rel=\"stylesheet\">\n		<script type=\"text/javascript\" src=\"/bitrix/templates/new/js/jquery-ui/js/jquery-ui-1.10.4.custom.min.js\"></script>\n		\n		<script type=\"text/javascript\">\n		     VK.init({apiId: <?=VK_API_ID?>});\n		</script>\n</head>\n<body>\n<style>\n	.colary-popup {\n		position:absolute;\n		width:300px;\n		height:300px;\n	}\n	.colary-overlay {\n		display:none;\n		width:100%;\n		height:100%;\n		background-color: #000000;\n		opacity: 0.6;\n		z-index: 9999;\n		position: absolute;\n	}\n</style>\n\n<div class=\"colary-overlay\"></div>\n<div class=\"colary-popup\">\n	Уважаемые партнеры!\n13 октября в связи с аварией на центральном узле связи компании «Билайн» временно недоступны офисные телефонные номера Корпорации DNK.\nДля связи с нами сегодня просьба использовать контактные номера:\n8(926)475-41-04\n8(926)475-40-29\n8(926)475-43-87\n</div>\n<div>\n		<div class=\"content\">\n			<div class=\"_container fixed-width-container\">\n				<div class=\"loading-cover-of-darkness\"></div>\n				<div class=\"padding-horizontal padding-vertical result-content-container\">\n					#WORK_AREA#				</div>\n			</div>\n		</div>\n		<div class=\"header fixed\">\n			<div class=\"header-line\">\n				<div class=\"fixed-width-container\">\n					<?$arDays = array('Воскресение', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');?>\n					<div class=\"_padding _left\">\n					</div>\n					<div class=\"_padding _right\">\n						<ul class=\"top_nav\">\n							<li><a href=\"/personal/\">Личный кабинет</a></li><li class=\"top_nav_delim\"> | </li>\n							<li><a href=\"/feedback/\">Задать вопрос</a></li><li class=\"top_nav_delim\"> | </li>\n							<li class=\"search-title\"><span style=\"cursor:pointer;\" onclick=\"$('#search_form').show(200).focus();\">Поиск</span></li>\n							<li class=\"last\"><input type=\"text\" name=\"q\" id=\"search_form\" /></li>\n							<script>\n							    $('#search_form').keypress(\n								function(e) {\n                                    console.log(e);\n								    if(e.which == 13) {\n									$.navigate('/search/?q='+encodeURIComponent($('#search_form').val()), true);\n								    }\n								}\n							    );\n							</script>\n						</ul>\n					</div>\n				</div>\n			</div>\n			<div class=\"_container fixed-width-container\"></div>\n		</div>\n		<div class=\"logo-and-menu fixed-width-container _container fixed\">\n			<div class=\"_logo-start\"><a href=\"/about\" title=\"Системная интеграция\"></a></div>\n			<div class=\"_logo-normal\"><a href=\"/\" title=\"Системная интеграция\"></a></div>\n			<div class=\"_menu\">\n				<?$APPLICATION->IncludeComponent(\"dnk:dnk.menu\", \"dnk\", array(\n	\n					),\n					false,\n					array(\n					\"ACTIVE_COMPONENT\" => \"Y\"\n					)\n				);?>\n			</div>\n			<div class=\"promo-block\">\n				<?$APPLICATION->IncludeComponent(\n					\"dnk:dnk.promo\",\n					\"\",\n					Array('SIZE' => 3)\n				);?>\n			</div>\n		</div>\n		<div class=\"header fixed no-height\">\n			<div class=\"fixed-width-container\">\n				<div class=\"header-about-corp-container\">\n					<a href=\"/about\" class=\"header-about-corp-link\">О корпорации &nbsp;</a>\n					<div class=\"_info\" onclick=\"$(this).find('a').click();\">\n						Корпорация DNK – профессиональный <a href=\"/about\" class=\"si-link\"><h3>системный интегратор</h3></a> и поставщик оборудования для медиаиндустрии в России и СНГ, дилер/дистрибьютор ведущих мировых и российских фирм-производителей. Корпорация DNK была основана в 1993 году и на сегодняшний день представляет собой крупный многопрофильный холдинг с оборотом более 1 млрд. рублей в год.<br/><br/><a href=\"/about/\">Подробнее</a>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\"footer fixed\">\n			<div class=\"_opacity fixed-width-container\"></div>\n			<div class=\"_container fixed-width-container\"></div>\n			<div class=\"footer-line\">\n				<div class=\"fixed-width-container\">\n					<div class=\"_padding _left\">\n						<ul class=\"top_nav\">\n							<li><b>&copy; <a href=\"/\">Корпорация DNK</a></b></li>\n							<li class=\"top_nav_delim\">|</li>\n							<li><a href=\"/contact\">Контакты</a></li>\n							<!--li class=\"top_nav_delim\">|</li>\n							<li>системная интеграция</li-->\n						</ul>\n					</div>\n					<div class=\"_padding _right\">\n						<ul id=\"icons\">\n							<li class=\"first\">Будь на связи</li>\n							<li><a href=\"http://vk.com/dnkcorporation\" target=\"_blank\" title=\"ВКонтакте\"><img src=\"/bitrix/templates/new/images/icon-vk.jpg\" alt=\"\"></a></li>\n							<li><a href=\"https://www.facebook.com/DNKcorporation\" target=\"_blank\" title=\"Facebook\"><img src=\"/bitrix/templates/new/images/icon-fb.jpg\" alt=\"\"></a></li>\n							<li><a href=\"http://dnk-corporation.livejournal.com/\" target=\"_blank\" title=\"LiveJournal\"><img src=\"/bitrix/templates/new/images/icon-lj.jpg\" alt=\"\"></a></li>\n						</ul>\n					</div>\n				</div>\n			</div>\n		</div>\n		</div>\n</body>\n<script src=\"http://google-analytics.com/ga.js\"></script>\n\n<!-- Yandex.Metrika counter -->\n								<script type=\"text/javascript\">\n								(function (d, w, c) {\n(w[c] = w[c] || []).push(function() {\ntry {\nw.yaCounter25991398 = new Ya.Metrika({id:25991398,\nclickmap:true,\ntrackLinks:true,\naccurateTrackBounce:true});\n} catch(e) { }\n});\nvar n = d.getElementsByTagName(\"script\")[0],\ns = d.createElement(\"script\"),\nf = function () { n.parentNode.insertBefore(s, n); };\ns.type = \"text/javascript\";\ns.async = true;\ns.src = (d.location.protocol \"https:\" ? \"https:\" : \"http:\") + \"//mc.yandex.ru/metrika/watch.js\";\nif (w.opera \"[object Opera]\") {\nd.addEventListener(\"DOMContentLoaded\", f, false);\n} else { f(); }\n})(document, window, \"yandex_metrika_callbacks\");\n</script>\n<noscript><div><img src=\"//mc.yandex.ru/watch/25991398\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>\n<!-- /Yandex.Metrika counter -->\n\n</html>\n",
+			"shop",
+			"➜  plugins  ",
+			"/opt/observium/",
+			"pad(",
+			"<a data-toggle=\"modal\" data-target=\"#mitsuModal\">",
+			"$arItem[\"DETAIL_PAGE_URL\"]",
+			"reach",
+			"['OPTIONS']",
+			":Get",
+			"formname",
+			"name=\"request\"",
+			"3D"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"[Creator]:<br/>",
+			">\\n<tr>",
+			":\\n<table",
+			"\\n",
+			"git checkout b126f3613e9836e853bebc41fb3730dd10a816cd",
+			"",
+			"h5",
+			"",
+			"h5",
+			"р5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"h5",
+			"",
+			"\\n",
+			"",
+			"h5",
+			"h4",
+			"img style=\"width:200px;\" src",
+			"img style=\"width:200px;\"",
+			"",
+			"precise",
+			"h3",
+			"ore_",
+			"test_",
+			"import_lite.php",
+			"\\n",
+			"194.5*.**.***",
+			"colary.ru/",
+			"colary.ru",
+			"",
+			"/var/www/observium/data/www/ob.hmdw.me/",
+			"<a href=\"<?echo $arItem[\"DETAIL_PAGE_URL\"]?>\" data-toggle=\"modal\" data-target=\"#mitsuModal\">",
+			"стиль:Заказ дизайна','design')",
+			"'",
+			"",
+			"Hyundai",
+			"'",
+			"/bup/",
+			"",
+			"('request','Скачать каталог ()')",
+			"",
+			"\"=>\"",
+			"\"",
+			"\"=>\"",
+			"<div class=\"sprite-choosedec-choose_dec$1\"></div>",
+			"<div class=\"sprite-bank-bank$1\"></div>",
+			"<div class=\"sprite-fibro-material-fibro-material$1\"></div>",
+			"<div class=\"fibro-material$1\"></div>",
+			"<div class=\"sprite-materialplace-materialplace$1\"></div>",
+			"<div class=\"sprite-cat-cat$1\"></div>",
+			"<div class=\"sprite-why-why$1\"></div>",
+			"<div class=\"sprite-why-why$\"></div>",
+			"'",
+			"",
+			"array('88002003134@mail.ru');",
+			"$_REQUEST",
+			"array('88002003134@mail.ru','sendtest@hamdeew.ru')",
+			"pattern",
+			"<?php echo $themeUrl;?>",
+			"jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|swf|woff|eot|ttf",
+			"",
+			"dekor-ks.ru",
+			"$NAME",
+			"vkCount",
+			"hahaha",
+			"Линии",
+			"cenH",
+			"topH",
+			"wH",
+			"wrH",
+			"'",
+			"result.innerHTML = result.innerHTML + parse",
+			"`test`",
+			"\");?>",
+			"<?$APPLICATION->AddHeadScript(\"",
+			"/shared/bitrix/",
+			"OPEL CORSA",
+			"MERIVA",
+			"Git",
+			"\"<?php get_theme_url(); ?>/img/",
+			"../img/",
+			"../fonts",
+			"руб. ",
+			"<li>",
+			"u2mg4",
+			"'),",
+			"',",
+			"'",
+			"=> array(",
+			"\"),",
+			"=> array(",
+			"\",",
+			"\"",
+			"",
+			"|",
+			"pre>",
+			"",
+			"url(",
+			"\"<?php get_theme_url(); ?>/images/categories/",
+			"<?php get_theme_url(); ?>/images/categories/4.jpg",
+			"sprite",
+			"",
+			"95.85.20.122",
+			"|",
+			"|$1$2",
+			"$1",
+			"|$",
+			"|1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "phpIB.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 277.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

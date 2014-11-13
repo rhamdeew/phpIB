@@ -45,7 +45,7 @@ if(!empty($result)) {
 }
 //Getting list of users
 $users = array();
-$result = array();
+unset($result);
 exec("/usr/local/ispmgr/sbin/mgrctl -m ispmgr user | cut -d' ' -f1 | sed s/name=//",$result);
 if(!empty($result)) {
 	foreach ($result as $user) {
@@ -133,7 +133,7 @@ if(empty($cmd) || $cmd=='--delete-old') {
 
 			//Remove old backups
 			//TODO: Fix to use linux utils
-			$result = "";
+			unset($result);
 			exec('ls '.$backupPath.'/',$result);
 
 			if(!empty($result)) {
@@ -205,6 +205,7 @@ if(empty($cmd) || $cmd=='--delete-old') {
 
 					//Uploading to ftp
 					if(!empty($max_archive_size)) {
+						unset($result);
 						exec('ls '.$backupPath.'.tar.gz*',$result);
 						foreach($result as $file) {
 							exec('curl -T '.$file.' ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);

@@ -10,6 +10,8 @@ echo "Starting backup process\n";
 $log .= "Starting backup process\n";
 
 require "config.php";
+exec('mkdir -p '.$backupsArchiveTempDir);
+/*
 $now = time();
 $alltimeNow = $now;
 
@@ -97,6 +99,7 @@ if(empty($cmd) || $cmd=='--delete-old') {
 
 				//Rsync backup
 				$backupPath = $backupsStorage.$user;
+				$backupArchiveName = $backupsArchiveTempDir.$user;
 
 				if(!file_exists($backupPath.'/current')) {
 					
@@ -189,12 +192,12 @@ if(empty($cmd) || $cmd=='--delete-old') {
 					}
 
 					if(!empty($max_archive_size)) {
-						echo 'tar cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz'."\n";
-						exec('tar cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$max_archive_size.' -d - '.$backupPath.'.tar.gz');
+						echo 'tar cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$max_archive_size.' -d - '.$backupArchiveName.'.tar.gz'."\n";
+						exec('tar cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$max_archive_size.' -d - '.$backupArchiveName.'.tar.gz');
 					}
 					else {
-						echo 'tar cf - '.$backupNames.' | '.$arch_bin.' > '.$backupPath.'.tar.gz'."\n";
-						exec('tar cf - '.$backupNames.' | '.$arch_bin.' > '.$backupPath.'.tar.gz');
+						echo 'tar cf - '.$backupNames.' | '.$arch_bin.' > '.$backupArchiveName.'.tar.gz'."\n";
+						exec('tar cf - '.$backupNames.' | '.$arch_bin.' > '.$backupArchiveName.'.tar.gz');
 					}
 
 					$sec = time()-$now;
@@ -204,28 +207,34 @@ if(empty($cmd) || $cmd=='--delete-old') {
 					$now = time();
 					echo "Starting upload process\n";
 
-					//Uploading to ftp
-					if(!empty($max_archive_size)) {
+					if($s3BackupFlag && !empty($s3BucketPath)) {
+						echo 'Backup to Amazon S3'."\n";
+						$log .= 'Backup to Amazon S3'."\n";
+						//Uploading to Amazon S3
 						unset($result);
-						exec('ls '.$backupPath.'.tar.gz*',$result);
+						exec('ls '.$backupArchiveName.'.tar.gz*',$result);
+						foreach($result as $file) {
+							exec('s3cmd put '.$file.' s3://'.$s3BucketPath);
+						}
+					}
+					
+					if($ftpBackupFlag && !empty($ftpHost)) {
+						//Uploading to ftp
+						echo 'Backup to remote ftp'."\n";
+						$log .= 'Backup to remote ftp'."\n";
+						unset($result);
+						exec('ls '.$backupArchiveName.'.tar.gz*',$result);
 						foreach($result as $file) {
 							exec('curl -T '.$file.' ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);
 						}
 					}
-					else {
-						exec('curl -T '.$backupPath.'.tar.gz ftp://'.$ftpHost.'/'.$ftpPath.'/ --user '.$ftpUser.':'.$ftpPassword);			
-					}		
 
 					//Remove archive
-					if(!empty($max_archive_size)) {
-						exec('rm '.$backupPath.'.tar.gz*');
-					}
-					else {
-						exec('rm '.$backupPath.'.tar.gz');
-					}
+					exec('rm '.$backupArchiveName.'.tar.gz*');
 					
 					$sec = time()-$now;
 					echo "Done in ".$sec." sec.\n";		
+					$log .= "Done in ".$sec." sec.\n";
 							 
 					echo "-----------------------\n";
 					$log .= "-----------------------\n";
@@ -242,6 +251,15 @@ $sec = time()-$alltimeNow;
 echo "All time ".$sec." sec.\n";
 $log .= "All time ".$sec." sec.\n";
 
+unset($result);
+exec('df -h',$result);
+
+if(isset($result[1])) {
+        echo "Available space on device: ".$result[1]."\n";
+        $log .= "Available space on device: ".$result[1]."\n";
+}
+
 file_put_contents(__DIR__.'/backup.log',$log,FILE_APPEND);
 
-mail("mail@example.ru","site_backup",$log);
+if(!empty($mailAddress))
+	mail($mailAddress,$mailSubject,$log);

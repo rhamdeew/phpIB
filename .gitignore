@@ -1,1 +1,3 @@
+*.komodoproject
 *.sublime-workspace
+config.php

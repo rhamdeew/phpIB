@@ -4,11 +4,23 @@ class phpIB {
 
 	private $log = '';	
 	private $apps = array();
+	private $backupArchiveName = '';
+	private $startTime = '';
 	
-	function __construct($message = 'Starting backup process') {
+	function __construct($backupsStorage,$backupsArchiveTempDir,$message = 'Starting backup process') {
 		echo $message."\n";
+		$this->startTime = time();
 		$this->log .= $message."\n";
+		$this->myExec('mkdir','-p '.$backupsStorage);
+		$this->myExec('mkdir','-p '.$backupsArchiveTempDir);
 	}
+	
+	function __destruct() {
+		$now = time();
+		$timeDiff = $now - $this->startTime;
+		echo "All backups complete in $timeDiff sec.\n";
+	}
+	
 	public function getISPUsersData() {
 		exec('/usr/local/ispmgr/sbin/mgrctl -m ispmgr db',$result);
 		$s = '';
@@ -49,7 +61,7 @@ class phpIB {
 		return $users;
 	}
 	
-	public function backupISPUser($user,$userPath,$userDatabases,$backupsStorage,$backupsArchiveTempDir,$backupName) {
+	public function backupISPUser($user,$userPath,$userDatabases,$backupsStorage,$backupsArchiveTempDir,$backupName,$excludeFile,$mysqlUser,$mysqlPassword) {
 		//Databases backups
 		$path = $userPath.$user.'/';
 		$mysqlPath = $path.'data/mysql';
@@ -65,7 +77,7 @@ class phpIB {
 		
 		//Rsync backup
 		$backupPath = $backupsStorage.$user;
-		$backupArchiveName = $backupsArchiveTempDir.$user;
+		$this->backupArchiveName = $backupsArchiveTempDir.$user;
 
 		if(!file_exists($backupPath.'/current')) {
 			if(!is_dir($backupPath)) {
@@ -123,9 +135,9 @@ class phpIB {
 			}
 
 			if(!empty($maxArchiveSize))
-				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$maxArchiveSize.' -d - '.$backupArchiveName.'.tar.gz');
+				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$maxArchiveSize.' -d - '.$this->backupArchiveName.'.tar.gz');
 			else
-				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' > '.$backupArchiveName.'.tar.gz');
+				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' > '.$this->backupArchiveName.'.tar.gz');
 		}
 	}
 	
@@ -133,18 +145,19 @@ class phpIB {
 		if(is_array($tasks)) {
 			foreach($tasks as $taskname => $task) {
 				$this->log .= "Starting upload task: $taskname \n";
-				$this->remoteBackup($task,$backupArchiveName);
+				$this->remoteBackup($task,$this->backupArchiveName);
 			}
 		}
 	}
 	
-	public function cleanForUpload($backupArchiveName,$messagePattern='Clean tmp archives') {
-		$this->myExec('rm',$backupArchiveName.'*',true,false,$messagePattern);
+	public function cleanForUpload($messagePattern='Clean tmp archives') {
+		if(!empty($this->backupArchiveName))
+			$this->myExec('rm',$this->backupArchiveName.'*',true,false,$messagePattern);
 	}	
 	
 	public function cleanOldBackups($user,$backupsStorage,$days,$backupNamePattern = 'backup-',$messagePattern='Removed: :arg:') {
 		$backupPath = $backupsStorage.$user;
-		$result = $this->myExec('find',$backupPath.' -name "'.$backupNamePattern.'*" -mtime +'.$days);
+		$result = $this->myExec('find',$backupPath.' -name "'.$backupNamePattern.'*" -mtime +'.$days,false,true);
 		if(is_array($result)) {
 			foreach($result as $dir) {
 				$this->myExec('rm -rf',$dir,true,false,$messagePattern);	
@@ -157,17 +170,17 @@ class phpIB {
 		if(!empty($device)) {
 			$arg = '-H '.$device;
 		}
-		$result = $this->myExec('df',$arg,true);
+		$result = $this->myExec('df',$arg,true,false,'');
 		echo str_replace(':result:',$result[1],$messagePattern);
 	}
 	
-	private function remoteBackup($task,$backupArchiveName) {
+	private function remoteBackup($task) {
 		if(!isset($task['type'])) {
 			$this->log .= "Backup task without type!\n";
 			return false;
 		}
 		
-		$result = $this->myExec('ls',$backupArchiveName.'*');
+		$result = $this->myExec('ls',$this->backupArchiveName.'*');
 		if(!is_array($result))
 			return false;
 			
@@ -200,11 +213,14 @@ class phpIB {
 		
 		$result = array();
 		if(!$dryrun) {
-			$execMessage = $this->myExecMessage($messagePattern,$bin,$arg);
-			echo $execMessage;
+			if(!empty($messagePattern)) {
+				$execMessage = $this->myExecMessage($messagePattern,$bin,$arg);
+				echo $execMessage;	
+			}
 			exec($bin.' '.$arg,$result);
 			if($log) {
-				$this->log .= $execMessage;
+				if(isset($execMessage))
+					$this->log .= $execMessage;
 				$this->log .= print_r($result,true)."\n";
 			}
 		}

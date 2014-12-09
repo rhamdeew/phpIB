@@ -8,20 +8,20 @@ class phpIB {
 	private $startTime = '';
 	
 	function __construct($backupsStorage,$backupsArchiveTempDir,$message = 'Starting backup process') {
-		echo $message."\n";
 		$this->startTime = time();
-		$this->log .= $message."\n";
+		$this->toLog($message."\n");
 		$this->myExec('mkdir','-p '.$backupsStorage);
 		$this->myExec('mkdir','-p '.$backupsArchiveTempDir);
 	}
 	
 	function __destruct() {
-		$now = time();
-		$timeDiff = $now - $this->startTime;
-		echo "All backups complete in $timeDiff sec.\n";
+		if(!empty($this->log))
+			$this->report(false);
 	}
 	
 	public function getISPUsersData() {
+		$this->toLog("Getting ISPmanager data\n");
+		$now = time();
 		exec('/usr/local/ispmgr/sbin/mgrctl -m ispmgr db',$result);
 		$s = '';
 		$users = array();
@@ -58,10 +58,16 @@ class phpIB {
 			}
 		}
 		
+		$timeDiff = time()-$now;
+		$this->toLog("Done in $timeDiff sec.\n");
+		$this->toLog("\n");
+		
 		return $users;
 	}
 	
 	public function backupISPUser($user,$userPath,$userDatabases,$backupsStorage,$backupsArchiveTempDir,$backupName,$excludeFile,$mysqlUser,$mysqlPassword) {
+		$this->toLog("Starting rsync\n");
+		$now = time();
 		//Databases backups
 		$path = $userPath.$user.'/';
 		$mysqlPath = $path.'data/mysql';
@@ -94,19 +100,27 @@ class phpIB {
 		}
 
 		if(file_exists(__DIR__.'/'.$excludeFile)) {
+			$this->toLog("Use exclude file $excludeFile\n");
 			$this->myExec('rsync','-a --del --delete-excluded --exclude-from \''.__DIR__.'/'.$excludeFile.'\' --link-dest='.$backupPath.'/current '.$path.' '.$backupPath.'/'.$backupName);
 		}
 		else {
 			$this->myExec('rsync','-a --del --delete-excluded --link-dest='.$backupPath.'/current '.$path.' '.$backupPath.'/'.$backupName);
 		}
-
+		
+		$this->myExec('touch',$backupPath.'/'.$backupName);
 		$this->myExec('rm',$backupPath.'/current && ln -s '.$backupName.' '.$backupPath.'/current');
 
 		//Delete mysql dir from user directory
 		$this->myExec('rm','-rf '.$mysqlPath);
+		
+		$timeDiff = time()-$now;
+		$this->toLog("Done in $timeDiff sec.\n");
+		$this->toLog("\n");		
 	}
 	
 	public function archiveForUpload($user,$backupsStorage,$archiver,$maxArchiveSize='',$archivesCount=3) {
+		$this->toLog("Starting archieving process\n");
+		$now = time();
 		$backupPath = $backupsStorage.$user;
 		$result = $this->myExec('ls','-td '.$backupPath.'/backup-* | xargs -n 1 basename');
 				
@@ -125,39 +139,55 @@ class phpIB {
 			if($archiver=='gzip' || $archiver=='pigz') {				
 				exec('which '.$archiver,$result);
 				if(empty($result)) {
-					$this->log .= "Not found $archiver program!\n";
-					die("Not found $archiver program!\n"); //TODO: Fix to exception
+					$this->toLog("Not found $archiver program!\n");
+					die("\n"); //TODO: Fix to exception
 				}
 				
 				$arch_bin = $archiver;
 				if($archiver=='pigz')
 					$arch_bin .= ' -9 -p 32';
+					
+				$this->toLog("Use $archiver\n");
 			}
 
 			if(!empty($maxArchiveSize))
 				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' | split -b '.$maxArchiveSize.' -d - '.$this->backupArchiveName.'.tar.gz');
 			else
 				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' > '.$this->backupArchiveName.'.tar.gz');
+				
+			$result = $this->myExec('ls','-lah '.$this->backupArchiveName.'.tar.gz*',true);
+			
+			$timeDiff = time()-$now;
+			$this->toLog("Done in $timeDiff sec.\n");
+			$this->toLog("\n");			
+			
+			return $result;
 		}
+		
+		return false;
 	}
 	
 	public function archiveTasksUpload($tasks) {
 		if(is_array($tasks)) {
 			foreach($tasks as $taskname => $task) {
-				$this->log .= "Starting upload task: $taskname \n";
+				$now = time();
+				$this->toLog("\nStarting upload task: $taskname \n");
 				$this->remoteBackup($task,$this->backupArchiveName);
+				$timeDiff = time()-$now;
+				$this->toLog("Done in $timeDiff sec.\n");
+				$this->toLog("\n");
 			}
 		}
 	}
 	
-	public function cleanForUpload($messagePattern='Clean tmp archives') {
+	public function cleanForUpload($messagePattern='Clear tmp archives') {
 		if(!empty($this->backupArchiveName))
 			$this->myExec('rm',$this->backupArchiveName.'*',true,false,$messagePattern);
 	}	
 	
 	public function cleanOldBackups($user,$backupsStorage,$days,$backupNamePattern = 'backup-',$messagePattern='Removed: :arg:') {
 		$backupPath = $backupsStorage.$user;
-		$result = $this->myExec('find',$backupPath.' -name "'.$backupNamePattern.'*" -mtime +'.$days,false,true);
+		$result = $this->myExec('find',$backupPath.'/ -name "'.$backupNamePattern.'*" -mtime +'.$days,false,false);
 		if(is_array($result)) {
 			foreach($result as $dir) {
 				$this->myExec('rm -rf',$dir,true,false,$messagePattern);	
@@ -165,18 +195,39 @@ class phpIB {
 		}
 	}
 	
-	public function diskFree($device='',$messagePattern = 'Available disk space: :result:') {
+	public function diskFree($device='',$messagePattern = "Available disk space:\n :result:") {
 		$arg = '-H';
 		if(!empty($device)) {
 			$arg = '-H '.$device;
 		}
-		$result = $this->myExec('df',$arg,true,false,'');
-		echo str_replace(':result:',$result[1],$messagePattern);
+		$result = $this->myExec('df',$arg,false,false,'');
+		$this->toLog(str_replace(':result:',$result[1],$messagePattern)."\n");
+	}
+	
+	
+	public function printDelimiter() {
+		$this->toLog("\n--------------------------\n");
+	}
+	
+	public function toLog($msg) {
+		$this->log .= $msg;
+		echo $msg;
+	}
+	
+	public function report($send=true,$mailAddress='',$mailSubject='backup complete') {
+		$now = time();
+		$timeDiff = $now - $this->startTime;
+		$this->toLog("All backups complete in $timeDiff sec.\n");
+		if($send && !empty($mailAddress)) {
+			$this->myMail($mailAddress,$mailSubject,$this->log);
+		}
+		$this->log = '';
+		
 	}
 	
 	private function remoteBackup($task) {
 		if(!isset($task['type'])) {
-			$this->log .= "Backup task without type!\n";
+			$this->toLog("Backup task without type!\n");
 			return false;
 		}
 		
@@ -192,7 +243,7 @@ class phpIB {
 		
 		if($task['type']=='s3') {
 			foreach($result as $file) {
-				$this->myExec('s3cmd ','put '.$file.' s3://'.$s3BucketPath);
+				$this->myExec('aws','s3 cp '.$file.' s3://'.$task['path']);
 			}
 			return $result;
 		}
@@ -203,8 +254,9 @@ class phpIB {
 		if(!isset($this->apps[$bin])) {
 			exec('which '.$bin,$result);
 			if(empty($result)) {
-				echo "Not found $bin program!\n";
-				if($log) $this->log .= "Not found $bin program!\n";
+				if($log) $this->toLog("Not found $bin program!\n");
+				else echo "Not found $bin program!\n";
+				
 				return false;
 			}
 			
@@ -213,19 +265,16 @@ class phpIB {
 		
 		$result = array();
 		if(!$dryrun) {
-			if(!empty($messagePattern)) {
+			if(!empty($messagePattern))
 				$execMessage = $this->myExecMessage($messagePattern,$bin,$arg);
-				echo $execMessage;	
-			}
+				
 			exec($bin.' '.$arg,$result);
-			if($log) {
-				if(isset($execMessage))
-					$this->log .= $execMessage;
-				$this->log .= print_r($result,true)."\n";
-			}
+			
+			if($log && isset($execMessage))
+					$this->toLog($execMessage);
 		}
 		else {
-			echo $bin.' '.$arg."\n";
+			$this->toLog($bin.' '.$arg."\n");
 		}
 
 		return $result;
@@ -240,6 +289,17 @@ class phpIB {
 		}
 		
 		return $bin.' '.$arg."\n";
+	}
+	
+	private function myMail($mailAddress,$mailSubject = 'backup complete',$message,$fromUser = "backup robot",$fromEmail = "robot@backup") {
+		$fromUser = "=?UTF-8?B?".base64_encode($fromUser)."?=";
+		$mailSubject = "=?UTF-8?B?".base64_encode($mailSubject)."?=";
+		
+		$headers = "From: $fromUser <$fromEmail>\r\n".
+			"MIME-Version: 1.0" . "\r\n" .
+			"Content-type: text/plain; charset=UTF-8" . "\r\n";
+			 
+		return mail($mailAddress,$mailSubject,$message,$headers);
 	}
 	
 }

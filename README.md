@@ -32,13 +32,13 @@ The advantage of this script is to support incremental backups.
 
 **TODO:**
 
-1. -Add support to exclude files and directories-
+1. ~~Add support to exclude files and directories~~
 
-2. -Add mail report with stats and status-
+2. ~~Add mail report with stats and status~~
 
-3. -Add filesize limit && split-
+3. ~~Add filesize limit && split~~
 
-4. -Rewrite code to OOP-
+4. ~~Rewrite code to OOP~~
 
 5. Complete Test Amazon S3 Upload
 

@@ -40,6 +40,8 @@ The advantage of this script is to support incremental backups.
 
 4. ~~Rewrite code to OOP~~
 
-5. Complete Test Amazon S3 Upload
+5. Not backup disabled users
 
-6. Support backup without installed ISPmanager 
+6. Complete Test Amazon S3 Upload
+
+7. Support backup without installed ISPmanager 

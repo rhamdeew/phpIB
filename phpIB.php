@@ -85,18 +85,8 @@ class phpIB {
 		$backupPath = $backupsStorage.$user;
 		$this->backupArchiveName = $backupsArchiveTempDir.$user;
 
-		if(!file_exists($backupPath.'/current')) {
-			if(!is_dir($backupPath)) {
-				$this->myExec('mkdir','-p '.$backupPath);
-				$this->myExec('ln','-s '.$path.' '.$backupPath.'/current');
-			}
-			else {
-				$result = $this->myExec('ls','-td '.$backupPath.'/backup-* | xargs -n 1 basename');
-				if(!empty($result[0]))
-					$this->myExec('ln','-s '.$result[0].' '.$backupPath.'/current');
-				else
-					$this->myExec('ln','-s '.$path.' '.$backupPath.'/current');							
-			}
+		if(!is_dir($backupPath)) {
+			$this->myExec('mkdir','-p '.$backupPath);
 		}
 
 		if(file_exists(__DIR__.'/'.$excludeFile)) {
@@ -107,8 +97,8 @@ class phpIB {
 			$this->myExec('rsync','-a --del --delete-excluded --link-dest='.$backupPath.'/current '.$path.' '.$backupPath.'/'.$backupName);
 		}
 		
-		$this->myExec('touch',$backupPath.'/'.$backupName);
-		$this->myExec('rm',$backupPath.'/current && ln -s '.$backupName.' '.$backupPath.'/current');
+		$this->myExec('rm -f',$backupPath.'/current');
+		$this->myExec('ln -s',$backupPath.'/'.$backupName.' '.$backupPath.'/current');
 
 		//Delete mysql dir from user directory
 		$this->myExec('rm','-rf '.$mysqlPath);
@@ -187,10 +177,16 @@ class phpIB {
 	
 	public function cleanOldBackups($user,$backupsStorage,$days,$backupNamePattern = 'backup-',$messagePattern='Removed: :arg:') {
 		$backupPath = $backupsStorage.$user;
-		$result = $this->myExec('find',$backupPath.'/ -name "'.$backupNamePattern.'*" -mtime +'.$days,false,false);
+		$result = $this->myExec('find',$backupPath.'/ -name "'.$backupNamePattern.'*" -type d | xargs -n 1 basename',false,false);
+		if($days==0) $days = 3;
+		$seconds = 60*60*24*$days;
+		$now = time();
 		if(is_array($result)) {
 			foreach($result as $dir) {
-				$this->myExec('rm -rf',$dir,true,false,$messagePattern);	
+				$dirtime = str_replace($backupNamePattern,'',$dir);
+				if($now-strtotime($dirtime)>$seconds) {	
+					$this->myExec('rm -rf',$dir,true,false,$messagePattern);
+				}
 			}
 		}
 	}

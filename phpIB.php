@@ -185,7 +185,7 @@ class phpIB {
 			foreach($result as $dir) {
 				$dirtime = str_replace($backupNamePattern,'',$dir);
 				if($now-strtotime($dirtime)>$seconds) {	
-					$this->myExec('rm -rf',$dir,true,false,$messagePattern);
+					$this->myExec('rm -rf',$backupPath.'/'.$dir,true,false,$messagePattern);
 				}
 			}
 		}

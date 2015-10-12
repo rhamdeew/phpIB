@@ -112,7 +112,7 @@ class phpIB {
 		$this->toLog("Starting archieving process\n");
 		$now = time();
 		$backupPath = $backupsStorage.$user;
-		$result = $this->myExec('ls','-td '.$backupPath.'/backup-* | xargs -n 1 basename');
+		$result = $this->myExec('ls','-rtd '.$backupPath.'/backup-* | xargs -n 1 basename');
 				
 		if(!empty($result))
 			$backupNames = array_slice($result, 0, $archivesCount); //3 last backups to upload

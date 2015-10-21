@@ -157,12 +157,12 @@ class phpIB {
 		return false;
 	}
 
-	public function archiveTasksUpload($tasks) {
+	public function archiveTasksUpload($tasks,$user) {
 		if(is_array($tasks)) {
 			foreach($tasks as $taskname => $task) {
 				$now = time();
 				$this->toLog("\nStarting upload task: $taskname \n");
-				$this->remoteBackup($task,$this->backupArchiveName);
+				$this->remoteBackup($task,$this->backupArchiveName,$user);
 				$timeDiff = time()-$now;
 				$this->toLog("Done in $timeDiff sec.\n");
 				$this->toLog("\n");
@@ -221,7 +221,7 @@ class phpIB {
 
 	}
 
-	private function remoteBackup($task) {
+	private function remoteBackup($task,$user) {
 		if(!isset($task['type'])) {
 			$this->toLog("Backup task without type!\n");
 			return false;
@@ -244,7 +244,7 @@ class phpIB {
 			return $result;
 		}
 		if($task['type']=='rsync') {
-			$this->myExec('rsync','-az --delete '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath']);
+			$this->myExec('rsync',$task['args'].' '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath'].'/'.$user.'/');
 		}
 
 		return false;

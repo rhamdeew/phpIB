@@ -18,7 +18,7 @@ if(is_array($users)) {
             foreach($result as $archiveItem)
                 $ib->toLog($archiveItem."\n");
         }
-        $ib->archiveTasksUpload($tasks);
+        $ib->archiveTasksUpload($tasks,$user);
         $ib->cleanForUpload();
 
         $timeDiff = time()-$now;

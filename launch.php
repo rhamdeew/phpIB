@@ -20,7 +20,7 @@ if(is_array($users)) {
         }
         $ib->archiveTasksUpload($tasks);
         $ib->cleanForUpload();
-        
+
         $timeDiff = time()-$now;
         $ib->toLog("Ended in $timeDiff seconds\n");
         $ib->printDelimiter();

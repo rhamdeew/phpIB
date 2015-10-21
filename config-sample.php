@@ -29,9 +29,15 @@ $tasks = array(
         "password" => "password",
         "host" => "examplehost.ru",
         "path" => "test",
-        ),    
+        ),
     "AmazonS3" => array(
         "type" => "s3",
         "path" => "test",
+        ),
+    "Rsync" => array(
+        "type" => "rsync",
+        "hostname" => "examplehost",
+        "localpath" => "/var/backups/local/",
+        "remotepath" => "/var/backups/extbackup/",
         ),
     );

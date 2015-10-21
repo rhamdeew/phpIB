@@ -37,7 +37,7 @@ $tasks = array(
     "Rsync" => array(
         "type" => "rsync",
         "hostname" => "examplehost",
-        "args" => "-av",
+        "args" => "-av --delete",
         "localpath" => "/var/backups/local/",
         "remotepath" => "/var/backups/extbackup/",
         ),

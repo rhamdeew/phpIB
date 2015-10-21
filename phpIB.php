@@ -244,7 +244,9 @@ class phpIB {
 			return $result;
 		}
 		if($task['type']=='rsync') {
-			$this->myExec('rsync',$task['args'].' '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath'].$user.'/');
+			$tmp = explode('/',$user);
+			$tmp = end($tmp);
+			$this->myExec('rsync',$task['args'].' '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath'].$tmp.'/');
 		}
 
 		return false;

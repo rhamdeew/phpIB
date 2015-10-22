@@ -57,7 +57,7 @@ if(is_array($users)) {
 			$ib->backupISPUser($user,$userPath,$databases,$backupsStorage,$backupsArchiveTempDir,$backupName,$excludeFile,$mysqlUser,$mysqlPassword);
 		}
 
-		$result = $ib->archiveForUpload($user,$backupsStorage,$archiver,$maxArchiveSize,$backupsArchiveTempDir);
+		$result = $ib->archiveForUpload($user,$backupsStorage,$archiver,$maxArchiveSize,3,$backupsArchiveTempDir);
 		if(is_array($result)) {
 			foreach($result as $archiveItem)
 				$ib->toLog($archiveItem."\n");

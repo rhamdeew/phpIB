@@ -266,10 +266,10 @@ class phpIB {
 	}
 	private function myExec($bin,$arg,$log='',$dryrun='',$messagePattern='') {
 
-		if(empty($log)) {
+		if($log==='') {
 			$log = $this->log;
 		}
-		if(empty($dryrun)) {
+		if($dryrun==='') {
 			$dryrun = $this->dryRun;
 		}
 

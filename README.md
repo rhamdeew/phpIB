@@ -26,6 +26,15 @@ The advantage of this script is to support incremental backups.
 30 6 * * * /usr/bin/php /root/phpIB/launch.php
 ``
 
+**COMMAND ARGUMENTS:**
+
+<pre>
+--log=true/false
+--dryrun=true/false
+--onlyupload=true/false
+--users=user1,user2...
+</pre>
+
 **OPTIONAL AMAZON S3 CONFIG:**
 
 1. http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
@@ -44,4 +53,4 @@ The advantage of this script is to support incremental backups.
 
 6. Complete Test Amazon S3 Upload
 
-7. Support backup without installed ISPmanager 
+7. Support backup without installed ISPmanager

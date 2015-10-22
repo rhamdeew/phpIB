@@ -218,9 +218,9 @@ class phpIB {
 		$timeDiff = $now - $this->startTime;
 		$this->toLog("All backups complete in $timeDiff sec.\n");
 		if($send && !empty($mailAddress)) {
-			$this->myMail($mailAddress,$mailSubject,$this->log);
+			$this->myMail($mailAddress,$mailSubject,$this->logString);
 		}
-		$this->log = '';
+		$this->logString = '';
 
 	}
 

@@ -224,11 +224,16 @@ class phpIB {
 
 	}
 
-	private function remoteBackup($task,$user) {
+	private function remoteBackup($task,$user,$backupsArchiveTempDir) {
 		if(!isset($task['type'])) {
 			$this->toLog("Backup task without type!\n");
 			return false;
 		}
+
+		$user = explode('/',$user);
+		$user = end($user);
+		$this->backupArchiveName = $backupsArchiveTempDir.$user;
+
 
 		$result = $this->myExec('ls',$this->backupArchiveName.'*');
 		if(!is_array($result))
@@ -247,9 +252,7 @@ class phpIB {
 			return $result;
 		}
 		if($task['type']=='rsync') {
-			$tmp = explode('/',$user);
-			$tmp = end($tmp);
-			$this->myExec('rsync',$task['args'].' '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath'].$tmp.'/');
+			$this->myExec('rsync',$task['args'].' '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath'].$user.'/');
 			return $result;
 		}
 		if($task['type']=='local') {

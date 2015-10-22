@@ -62,7 +62,7 @@ if(is_array($users)) {
 			foreach($result as $archiveItem)
 				$ib->toLog($archiveItem."\n");
 		}
-		$ib->archiveTasksUpload($tasks,$user);
+		$ib->archiveTasksUpload($tasks,$user,$backupsArchiveTempDir);
 		$ib->cleanForUpload();
 
 		$timeDiff = time()-$now;

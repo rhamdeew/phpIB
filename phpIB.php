@@ -2,7 +2,10 @@
 
 class phpIB {
 
-	private $log = '';
+	public $log = true;
+	public $onlyUpload = false;
+	public $dryRun = false;
+	private $logString = '';
 	private $apps = array();
 	private $backupArchiveName = '';
 	private $startTime = '';
@@ -15,7 +18,7 @@ class phpIB {
 	}
 
 	function __destruct() {
-		if(!empty($this->log))
+		if(!empty($this->logString))
 			$this->report(false);
 	}
 
@@ -206,7 +209,7 @@ class phpIB {
 	}
 
 	public function toLog($msg) {
-		$this->log .= $msg;
+		$this->logString .= $msg;
 		echo $msg;
 	}
 
@@ -247,11 +250,29 @@ class phpIB {
 			$tmp = explode('/',$user);
 			$tmp = end($tmp);
 			$this->myExec('rsync',$task['args'].' '.$task['localpath'].' '.$task['hostname'].':'.$task['remotepath'].$tmp.'/');
+			return $result;
+		}
+		if($task['type']=='local') {
+			foreach($result as $file) {
+				$this->myExec('cp',$file.' '.$task['localpath']);
+			}
+			if(isset($task['owner'])) {
+				$this->myExec('chown','-R '.$task['owner'].':'.$task['owner'].' '.$task['localpath']);
+			}
+			return $result;
 		}
 
 		return false;
 	}
-	private function myExec($bin,$arg,$log=false,$dryrun=false,$messagePattern='') {
+	private function myExec($bin,$arg,$log='',$dryrun='',$messagePattern='') {
+
+		if(empty($log)) {
+			$log = $this->log;
+		}
+		if(empty($dryrun)) {
+			$dryrun = $this->dryRun;
+		}
+
 		if(!isset($this->apps[$bin])) {
 			exec('which '.$bin,$result);
 			if(empty($result)) {

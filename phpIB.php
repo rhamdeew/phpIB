@@ -231,7 +231,7 @@ class phpIB {
 			return false;
 		}
 
-		$result = $this->myExec('ls',$backupsArchiveTempDir.$user.'/*');
+		$result = $this->myExec('ls',$backupsArchiveTempDir.'*');
 		if(!is_array($result))
 			return false;
 

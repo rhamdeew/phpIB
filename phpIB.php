@@ -160,12 +160,12 @@ class phpIB {
 		return false;
 	}
 
-	public function archiveTasksUpload($tasks,$user) {
+	public function archiveTasksUpload($tasks,$user,$backupsArchiveTempDir) {
 		if(is_array($tasks)) {
 			foreach($tasks as $taskname => $task) {
 				$now = time();
 				$this->toLog("\nStarting upload task: $taskname \n");
-				$this->remoteBackup($task,$this->backupArchiveName,$user);
+				$this->remoteBackup($task,$user,$backupsArchiveTempDir);
 				$timeDiff = time()-$now;
 				$this->toLog("Done in $timeDiff sec.\n");
 				$this->toLog("\n");
@@ -230,12 +230,7 @@ class phpIB {
 			return false;
 		}
 
-		$user = explode('/',$user);
-		$user = end($user);
-		$this->backupArchiveName = $backupsArchiveTempDir.$user;
-
-
-		$result = $this->myExec('ls',$this->backupArchiveName.'*');
+		$result = $this->myExec('ls',$backupsArchiveTempDir.$user.'/*');
 		if(!is_array($result))
 			return false;
 

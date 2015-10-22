@@ -75,8 +75,8 @@ class phpIB {
 		$path = $userPath.$user.'/';
 		$mysqlPath = $path.'data/mysql';
 
-		exec('mkdir -p '.$mysqlPath);
-		exec('rm -rf '.$mysqlPath.'/*');
+		$this->myExec('mkdir','-p '.$mysqlPath);
+		$this->myExec('rm','-rf '.$mysqlPath.'/*');
 
 		foreach ($userDatabases as $dbName) {
 			$this->myExec('mysqldump','-u '.$mysqlUser.' -p'.$mysqlPassword.' '.$dbName.' | gzip > '.$mysqlPath.'/'.$dbName.'.sql.gz');
@@ -175,7 +175,7 @@ class phpIB {
 
 	public function cleanForUpload($messagePattern='Clear tmp archives') {
 		if(!empty($this->backupArchiveName))
-			$this->myExec('rm',$this->backupArchiveName.'*',true,false,$messagePattern);
+			$this->myExec('rm',$this->backupArchiveName.'*','','',$messagePattern);
 	}
 
 	public function cleanOldBackups($user,$backupsStorage,$days,$backupNamePattern = 'backup-',$messagePattern='Removed: :arg:') {

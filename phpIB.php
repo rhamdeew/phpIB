@@ -111,7 +111,8 @@ class phpIB {
 		$this->toLog("\n");
 	}
 
-	public function archiveForUpload($user,$backupsStorage,$archiver,$maxArchiveSize='',$archivesCount=3) {
+	public function archiveForUpload($user,$backupsStorage,$archiver,$maxArchiveSize='',$archivesCount=3,$backupsArchiveTempDir) {
+		$this->backupArchiveName = $backupsArchiveTempDir.$user;
 		$this->toLog("Starting archieving process\n");
 		$now = time();
 		$backupPath = $backupsStorage.$user;
@@ -148,7 +149,7 @@ class phpIB {
 			else
 				$this->myExec('tar','cf - '.$backupNames.' | '.$arch_bin.' > '.$this->backupArchiveName.'.tar.gz');
 
-			$result = $this->myExec('ls','-lah '.$this->backupArchiveName.'.tar.gz*',true);
+			$result = $this->myExec('ls','-lah '.$this->backupArchiveName.'.tar.gz*','');
 
 			$timeDiff = time()-$now;
 			$this->toLog("Done in $timeDiff sec.\n");
